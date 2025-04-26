@@ -335,11 +335,6 @@ def add_secondary_mail():
     host = request.headers.get("Host", "")
     referer = request.headers.get("Referer", "")
 
-    print("_----------------")
-    print(origin)
-    print(host)
-    print(referer)
-
     if not secondary_email.endswith('@iha089.org'):
         error_msg = "only emails with @iha089.org domain are allowed"
         return render_template('addmail.html', error=error_msg)
@@ -681,5 +676,3 @@ def add_cache_control_headers(response):
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "0"
     return response
-
-#MailHijackCSRF.run("127.0.0.1", 5000)
